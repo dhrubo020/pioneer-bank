@@ -21,31 +21,29 @@ window.onload = function () {
     var depositBtn = document.getElementById("depositBtn");
     depositBtn.addEventListener("click", function () {
         //from deposit input field
-        // var getDepositAmount = document.getElementById("depositAmount").value;
-        // var depositAmount = parseFloat(getDepositAmount);
         var depositAmount = getInputValue("depositAmount")
+
         updateValue("currentDeposit",depositAmount);
         updateValue("currentBalance",depositAmount);
 
-        // //from html deposit
-        // var getCurrentDeposit = document.getElementById("currentDeposit").innerText;
-        // var currentDeposit = parseFloat(getCurrentDeposit);
-        
-        // //from html balance
-        // var getCurrentBalance = document.getElementById("currentBalance").innerText;
-        // var currentBalance = parseFloat(getCurrentBalance);
-
-        // if (depositAmount > 0) {
-        //     currentDeposit = currentDeposit + depositAmount;
-        //     document.getElementById("currentDeposit").innerText = currentDeposit;
-            
-        //     currentBalance = currentBalance + depositAmount;
-        //     document.getElementById("currentBalance").innerText = currentBalance;
-        // }
         document.getElementById("depositAmount").value = "";
 
     })
 
+    // withdraw event
+    var withdrawBtn = document.getElementById("withdrawBtn");
+    withdrawBtn.addEventListener("click", function(){
+        //from withdraw input field
+        var withdrawAmount = getInputValue("withdrawAmount");
+
+        updateValue("currentWithdraw",withdrawAmount);
+        updateValue("currentBalance",-withdrawAmount);
+
+        document.getElementById("withdrawAmount").value = "";
+    })
+
+
+    //-------------------------------------------------------------------
     function getInputValue(id){
         var inputValue = document.getElementById(id).value;
         var value = parseFloat(inputValue);
@@ -60,10 +58,8 @@ window.onload = function () {
 
     function updateValue(id,depositAmount){
         
-        // var getValue = document.getElementById(id).innerText;
-        // var value = parseFloat(getValue);
         var value = getCurrentValue(id);
-        if (depositAmount > 0) {
+        if (depositAmount >0 || depositAmount <0) {
             value += depositAmount;
             document.getElementById(id).innerText = value;
         }

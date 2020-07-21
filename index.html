@@ -41,7 +41,7 @@
             <div class="col-md-4">
                 <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWithdraw">00</span> </h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -68,9 +68,9 @@
                 <div class="form-area p-4">
                     <h4>Withdraw</h4>
                     <br>
-                    <input type="text" class="form-control" placeholder="$ amount you want to withdraw">
+                    <input id="withdrawAmount" type="text" class="form-control" placeholder="$ amount you want to withdraw">
                     <br>
-                    <button class="btn btn-success">
+                    <button id="withdrawBtn" class="btn btn-success">
                         Withdraw
                     </button>
                 </div>
